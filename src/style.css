@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'Barlow Semi Condensed';
+  src: url(./assets/fonts/BarlowSemiCondensed-SemiBold.ttf);
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow Semi Condensed';
+  src: url(./assets/fonts/BarlowSemiCondensed-Bold.ttf);
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0; 
+  font-size: inherit;
+  font-family:'Barlow Semi Condensed', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 600;
+  list-style-type: none;
+}
+
+.about {
+  position: relative;
+  height: 100vh;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.background-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  display: flex;
+}
+
+.background-panel {
+  width: 400px;
+  height: 100vh;
+  background-color: #AA9B5C;
+}
+
+.background-image {
+  flex: 1;
+  background-color: olive;
+}
+
+.about-container {
+  color: white;
+  margin-top: 3rem;
+  max-width: 650px;
+}
+
+.about-container > .role {
+  font-size: 3rem;
+}
+
+.about-container > .about-me {
+  font-size: 2rem;
+}
+
+.greeting-container {
+  user-select: none;
+  color: white;
+  margin-top: auto;
+}
+
+.greeting-container > .greeting {
+  font-size: 3rem;
+  transform: translate(6px, 0);
+}
+
+.greeting-container > .name {
+  font-size: 10rem;
+  font-weight: bold;
+  line-height: 0.8;
+  letter-spacing: -0.5rem;
+}
