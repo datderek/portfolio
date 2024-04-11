@@ -1,5 +1,12 @@
 @font-face {
   font-family: 'Barlow Semi Condensed';
+  src: url(./assets/fonts/BarlowSemiCondensed-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow Semi Condensed';
   src: url(./assets/fonts/BarlowSemiCondensed-SemiBold.ttf);
   font-weight: 600;
   font-style: normal;
@@ -12,6 +19,17 @@
   font-style: normal;
 }
 
+:root {
+  /* Shadows provided by Josh Comeau at: 
+  https://www.joshwcomeau.com/shadow-palette/ */
+  --shadow-color: 92, 102, 111, 0.25;
+  --shadow:
+    0.3px 0.5px 0.7px rgba(var(--shadow-color)),
+    1.1px 1.6px 2.2px -0.8px rgba(var(--shadow-color)),
+    2.7px 4px 5.4px -1.7px rgba(var(--shadow-color)),
+    6.6px 9.8px 13.3px -2.5px rgba(var(--shadow-color));
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -22,10 +40,13 @@
   list-style-type: none;
 }
 
-.about {
+.about-page, .projects-page, .contact-page {
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.about-page {
   position: relative;
-  height: 100vh;
-  padding: 3rem;
   display: flex;
   flex-direction: column;
 }
@@ -56,11 +77,11 @@
   max-width: 650px;
 }
 
-.about-container > .role {
+.about-container > h2 {
   font-size: 3rem;
 }
 
-.about-container > .about-me {
+.about-container > p {
   font-size: 2rem;
 }
 
@@ -70,14 +91,71 @@
   margin-top: auto;
 }
 
-.greeting-container > .greeting {
+.greeting-container > p {
   font-size: 3rem;
   transform: translate(6px, 0);
 }
 
-.greeting-container > .name {
+.greeting-container > h1 {
   font-size: 10rem;
   font-weight: bold;
   line-height: 0.8;
   letter-spacing: -0.5rem;
+}
+
+.projects-page {
+  position: relative;
+  background-color: #B7CCDE;
+}
+
+.title-container {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  color: #455E75;
+  user-select: none;
+}
+
+.title-container > p {
+  font-size: 3rem;
+  transform: translate(6px, 0);
+  transform: rotate(-5deg);
+}
+
+.title-container > h1 {
+  font-size: 10rem;
+  font-weight: bold;
+  line-height: 0.8;
+  letter-spacing: -0.5rem;
+  transform: rotate(-5deg);
+}
+
+.projects-container {
+  margin-top: 16rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
+  grid-auto-rows: 300px;
+  column-gap: 2rem;
+  row-gap: 2.5rem;
+}
+
+.projects-container > .project {
+  position: relative;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+}
+
+.project > .project-details {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+}
+
+.project-details > .project-name {
+  font-size: 1.25rem;
+}
+
+.project-details > .project-description {
+  font-weight: normal;
 }
