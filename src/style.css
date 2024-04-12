@@ -142,7 +142,7 @@
 .projects-container > .project {
   position: relative;
   background-color: white;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   box-shadow: var(--shadow);
 }
 
@@ -158,4 +158,33 @@
 
 .project-details > .project-description {
   font-weight: normal;
+}
+
+.contact-page {
+  padding: 2rem 0rem;
+  background-color: #FFFBEB;
+  display: flex;
+  flex-direction: column;
+  color: #FF5A13;
+}
+
+.contact-page > h1 {
+  align-self: center;
+  text-align: center;
+  font-size: 10rem;
+}
+
+.contact-description {
+  padding: 0rem 2rem;
+  font-size: 2rem;
+}
+
+.contact {
+  padding: 0rem 2rem;
+  font-size: 4rem;
+  border-top: 3px solid #FF5A13;
+}
+
+.contact:last-child {
+  border-bottom: 3px solid #FF5A13;
 }
