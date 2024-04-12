@@ -19,17 +19,6 @@
   font-style: normal;
 }
 
-:root {
-  /* Shadows provided by Josh Comeau at: 
-  https://www.joshwcomeau.com/shadow-palette/ */
-  --shadow-color: 92, 102, 111, 0.25;
-  --shadow:
-    0.3px 0.5px 0.7px rgba(var(--shadow-color)),
-    1.1px 1.6px 2.2px -0.8px rgba(var(--shadow-color)),
-    2.7px 4px 5.4px -1.7px rgba(var(--shadow-color)),
-    6.6px 9.8px 13.3px -2.5px rgba(var(--shadow-color));
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -38,6 +27,7 @@
   font-family:'Barlow Semi Condensed', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 600;
   list-style-type: none;
+  color: inherit;
 }
 
 .about-page, .projects-page, .contact-page {
@@ -45,10 +35,23 @@
   padding: 2rem;
 }
 
+.header {
+  font-size: 10rem;
+  font-weight: bold;
+}
+
+.subheader {
+  font-size: 3rem;
+}
+
+/*
+ * About Page Styles
+ */
 .about-page {
   position: relative;
   display: flex;
   flex-direction: column;
+  color: white;
 }
 
 .background-container {
@@ -72,13 +75,8 @@
 }
 
 .about-container {
-  color: white;
   margin-top: 3rem;
   max-width: 650px;
-}
-
-.about-container > h2 {
-  font-size: 3rem;
 }
 
 .about-container > p {
@@ -92,39 +90,44 @@
 }
 
 .greeting-container > p {
-  font-size: 3rem;
   transform: translate(6px, 0);
 }
 
-.greeting-container > h1 {
-  font-size: 10rem;
-  font-weight: bold;
+.greeting-container > .header {
   line-height: 0.8;
   letter-spacing: -0.5rem;
 }
 
+/*
+ * Projects Page Styles
+ */
 .projects-page {
   position: relative;
   background-color: #B7CCDE;
+  color: #455E75;
+  /* Shadows provided by Josh Comeau at: 
+  https://www.joshwcomeau.com/shadow-palette/ */
+  --shadow-color: 92, 102, 111, 0.25;
+  --shadow:
+    0.3px 0.5px 0.7px rgba(var(--shadow-color)),
+    1.1px 1.6px 2.2px -0.8px rgba(var(--shadow-color)),
+    2.7px 4px 5.4px -1.7px rgba(var(--shadow-color)),
+    6.6px 9.8px 13.3px -2.5px rgba(var(--shadow-color));
 }
 
 .title-container {
   position: absolute;
   left: 2rem;
   top: 2rem;
-  color: #455E75;
   user-select: none;
 }
 
 .title-container > p {
-  font-size: 3rem;
   transform: translate(6px, 0);
   transform: rotate(-5deg);
 }
 
-.title-container > h1 {
-  font-size: 10rem;
-  font-weight: bold;
+.title-container > .header {
   line-height: 0.8;
   letter-spacing: -0.5rem;
   transform: rotate(-5deg);
@@ -139,39 +142,42 @@
   row-gap: 2.5rem;
 }
 
-.projects-container > .project {
+.project {
   position: relative;
-  background-color: white;
   border-radius: 1rem;
   box-shadow: var(--shadow);
+  background-color: white;
+  color: black;
 }
 
-.project > .project-details {
+.project-details {
   position: absolute;
   left: 1rem;
   bottom: 1rem;
 }
 
-.project-details > .project-name {
+.project-name {
   font-size: 1.25rem;
 }
 
-.project-details > .project-description {
+.project-description {
   font-weight: normal;
 }
 
+/*
+ * Contact Page Styles
+ */
 .contact-page {
   padding: 2rem 0rem;
-  background-color: #FFFBEB;
   display: flex;
   flex-direction: column;
+  background-color: #FFFBEB;
   color: #FF5A13;
 }
 
-.contact-page > h1 {
+.contact-page > .header {
   align-self: center;
   text-align: center;
-  font-size: 10rem;
 }
 
 .contact-description {
@@ -180,8 +186,7 @@
 }
 
 .contact {
-  padding: 0rem 2rem;
-  font-size: 4rem;
+  padding: 0.5rem 2rem;
   border-top: 3px solid #FF5A13;
 }
 
