@@ -30,7 +30,7 @@
   color: inherit;
 }
 
-.about-page, .projects-page, .contact-page {
+#about-page, #projects-page, #contact-page {
   min-height: 100vh;
   padding: 2rem;
 }
@@ -45,9 +45,83 @@
 }
 
 /*
+ * Navbar Style
+ */
+nav {
+  width: 100vw;
+  height: 56px;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0));
+}
+
+.nav-container {
+  height: 100%;
+  display: flex;
+}
+
+.menu-links {
+  display: none;
+  height: 100%;
+  gap: 0.25rem;
+  transform-origin: right;
+}
+
+.menu-links.collapse, .menu-links.expand {
+  display: flex;
+}
+
+.menu-links.collapse {
+  animation: collapse 500ms cubic-bezier(0.36, 0, 0.66, -0.56) both;
+}
+
+.menu-links.expand {
+  animation: expand 500ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.menu-links > a {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  text-decoration: none;
+}
+
+.menu-links > a:first-child {
+  border-radius: 1000px 0 0 1000px;
+}
+
+.menu-links > a:last-child {
+  border-radius: 0 1000px 1000px 0;
+}
+
+.menu-toggle-button {
+  width: 40px;
+  margin-left: 1rem;
+  border-radius: 1000px;
+  border: none;
+  background-color: white;
+  background-image: url('assets/images/cross.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+  will-change: transform;
+  transition: transform 500ms ease-in-out;
+}
+
+.menu-toggle-button.expand {
+  transform: rotate(315deg);
+}
+
+/*
  * About Page Styles
  */
-.about-page {
+#about-page {
+  z-index: -1;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -101,8 +175,9 @@
 /*
  * Projects Page Styles
  */
-.projects-page {
+#projects-page {
   position: relative;
+  z-index: -1;
   background-color: #B7CCDE;
   color: #455E75;
   /* Shadows provided by Josh Comeau at: 
@@ -167,7 +242,7 @@
 /*
  * Contact Page Styles
  */
-.contact-page {
+#contact-page {
   padding: 2rem 0rem;
   display: flex;
   flex-direction: column;
@@ -175,7 +250,7 @@
   color: #FF5A13;
 }
 
-.contact-page > .header {
+#contact-page > .header {
   align-self: center;
   text-align: center;
 }
@@ -192,4 +267,25 @@
 
 .contact:last-child {
   border-bottom: 3px solid #FF5A13;
+}
+
+@keyframes expand {
+  from {
+    transform: scaleX(0);
+  }
+  
+  to {
+    transform: scaleX(1);
+  }
+}
+
+
+@keyframes collapse {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0)
+  }
 }
