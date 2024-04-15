@@ -48,7 +48,8 @@
  * Navbar Style
  */
 nav {
-  width: 100vw;
+  z-index: 1;
+  width: 100%;
   height: 56px;
   padding: 0.5rem 1rem;
   position: fixed;
@@ -121,7 +122,6 @@ nav {
  * About Page Styles
  */
 #about-page {
-  z-index: -1;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -145,11 +145,13 @@ nav {
 
 .background-image {
   flex: 1;
-  background-color: olive;
+  background-image: url('./assets/images/graduation.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .about-container {
-  margin-top: 3rem;
+  margin-top: 10rem;
   max-width: 650px;
 }
 
@@ -177,7 +179,6 @@ nav {
  */
 #projects-page {
   position: relative;
-  z-index: -1;
   background-color: #B7CCDE;
   color: #455E75;
   /* Shadows provided by Josh Comeau at: 
@@ -222,13 +223,32 @@ nav {
   border-radius: 1rem;
   box-shadow: var(--shadow);
   background-color: white;
-  color: black;
+  overflow: hidden;
+  will-change: transform;
+  transition: 500ms transform;
+}
+
+.project:hover {
+  transform: scale(1.02);
+}
+
+.project-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  opacity: 50%;
 }
 
 .project-details {
   position: absolute;
   left: 1rem;
   bottom: 1rem;
+  color: black;
 }
 
 .project-name {
@@ -243,6 +263,7 @@ nav {
  * Contact Page Styles
  */
 #contact-page {
+  position: relative;
   padding: 2rem 0rem;
   display: flex;
   flex-direction: column;
