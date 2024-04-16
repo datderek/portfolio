@@ -23,7 +23,7 @@
   scroll-behavior: smooth;
   scroll-snap-type: y;
   --ecru: #AA9B5C;
-  --columbia-blue: ##B7CCDE;
+  --columbia-blue: #B7CCDE;
   --payne-gray: #455E75;
   --cosmic-latte: #FFFBEB;
   --giants-orange: #FF5A13;
@@ -208,17 +208,16 @@ nav {
   position: absolute;
   left: 2rem;
   top: 2rem;
+  transform: rotate(-5deg);
 }
 
 .title-container > p {
   transform: translate(6px, 0);
-  transform: rotate(-5deg);
 }
 
 .title-container > .header {
   line-height: 0.8;
   letter-spacing: -0.5rem;
-  transform: rotate(-5deg);
 }
 
 .projects-container {

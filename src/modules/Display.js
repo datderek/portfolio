@@ -10,43 +10,49 @@ const createImageElement = (src) => {
   return imageElement;
 }
 
-export default class Display {
-  static projectList = document.querySelector('.projects-container');
-  static projects = [
-    {
-      'name': 'Yum',
-      'description': 'A social culinary platform for home cooks and professional chefs',
-      'link': 'https://github.com/jackfales/yum',
-      'img': createImageElement(Yum)
-    },
-    {
-      'name': 'Battleships',
-      'description': 'A single player recreation of the classic Battleship game',
-      'link': 'https://github.com/datderek/battleship.git',
-      'img': createImageElement(Battleship)
-    },
-    {
-      'name': 'SoundScribe',
-      'description': 'A Discord bot that transcribes audio in real-time',
-      'link': 'https://github.com/datderek/SoundScribe.git',
-      'img': createImageElement(SoundScribe)
-    },
-    {
-      'name': 'WeatherMan',
-      'description': 'Another one of those Weather apps... but made by me',
-      'link': 'https://github.com/datderek/weatherman.git',
-      'img': createImageElement(WeatherMan)
-    },
-    {
-      'name': 'Tic Tac Toe',
-      'description': 'Get three in a row!',
-      'link': 'https://github.com/datderek/odinproject/tree/main/tictactoe',
-      'img': createImageElement(TicTacToe)
-    },
-  ]
+const projects = [
+  {
+    'name': 'Yum',
+    'description': 'A social culinary platform for home cooks and professional chefs',
+    'link': 'https://github.com/jackfales/yum',
+    'img': createImageElement(Yum)
+  },
+  {
+    'name': 'Battleships',
+    'description': 'A single player recreation of the classic Battleship game',
+    'link': 'https://github.com/datderek/battleship.git',
+    'img': createImageElement(Battleship)
+  },
+  {
+    'name': 'SoundScribe',
+    'description': 'A Discord bot that transcribes audio in real-time',
+    'link': 'https://github.com/datderek/SoundScribe.git',
+    'img': createImageElement(SoundScribe)
+  },
+  {
+    'name': 'WeatherMan',
+    'description': 'Another one of those Weather apps... but made by me',
+    'link': 'https://github.com/datderek/weatherman.git',
+    'img': createImageElement(WeatherMan)
+  },
+  {
+    'name': 'Tic Tac Toe',
+    'description': 'Get three in a row!',
+    'link': 'https://github.com/datderek/odinproject/tree/main/tictactoe',
+    'img': createImageElement(TicTacToe)
+  },
+]
 
-  static loadProjects() {
-    this.projects.forEach((project) => {
+export default class Display {
+  
+  static start() {
+    this.#loadProjects();
+  }
+
+  static #loadProjects() {
+    const projectList = document.querySelector('.projects-container');
+
+    projects.forEach((project) => {
       const projectContainer = document.createElement('li');
       projectContainer.classList.add('project');
       
@@ -72,7 +78,7 @@ export default class Display {
       projectContainer.appendChild(projectImage);
       projectContainer.appendChild(projectLinkWrapper);
       projectContainer.appendChild(projectDetails);
-      this.projectList.appendChild(projectContainer);
+      projectList.appendChild(projectContainer);
     })
   }
 }
