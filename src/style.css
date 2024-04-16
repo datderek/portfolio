@@ -19,6 +19,16 @@
   font-style: normal;
 }
 
+:root {
+  scroll-behavior: smooth;
+  scroll-snap-type: y;
+  --ecru: #AA9B5C;
+  --columbia-blue: ##B7CCDE;
+  --payne-gray: #455E75;
+  --cosmic-latte: #FFFBEB;
+  --giants-orange: #FF5A13;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -34,6 +44,7 @@
 #about-page, #projects-page, #contact-page {
   min-height: 100vh;
   padding: 2rem;
+  scroll-snap-align: start;
 }
 
 .header {
@@ -142,7 +153,7 @@ nav {
 .background-panel {
   width: 400px;
   height: 100vh;
-  background-color: #AA9B5C;
+  background-color: var(--ecru);
 }
 
 .background-image {
@@ -181,8 +192,8 @@ nav {
  */
 #projects-page {
   position: relative;
-  background-color: #B7CCDE;
-  color: #455E75;
+  background-color: var(--columbia-blue);
+  color: var(--payne-gray);
   /* Shadows provided by Josh Comeau at: 
   https://www.joshwcomeau.com/shadow-palette/ */
   --shadow-color: 92, 102, 111, 0.25;
@@ -274,8 +285,8 @@ nav {
   padding: 2rem 0rem;
   display: flex;
   flex-direction: column;
-  background-color: #FFFBEB;
-  color: #FF5A13;
+  background-color: var(--cosmic-latte);
+  color: var(--giants-orange);
 }
 
 #contact-page > .header {
@@ -291,12 +302,12 @@ nav {
 .contact {
   position: relative;
   padding: 0.5rem 2rem;
-  border-top: 3px solid #FF5A13;
+  border-top: 3px solid var(--giants-orange);
   transition: 100ms color, 100ms background-color;
 }
 
 .contact:last-child {
-  border-bottom: 3px solid #FF5A13;
+  border-bottom: 3px solid var(--giants-orange);
 }
 
 .contact-hovered {
@@ -307,7 +318,7 @@ nav {
   width: 100%;
   padding: 0.5rem 2rem;
   color: #FFFBEB;
-  background-color: #FF5A13;
+  background-color: var(--giants-orange);
   transform: scale(100%, 0);
   will-change: transform;
   transition: 150ms transform ease-out;
@@ -326,7 +337,6 @@ nav {
     transform: scaleX(1);
   }
 }
-
 
 @keyframes collapse {
   from {
