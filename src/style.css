@@ -43,6 +43,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: var(--cosmic-latte);
+  overflow-x: hidden;
 }
 
 #about-page, #projects-page, #contact-page {
@@ -71,10 +72,18 @@ body {
 }
 
 .title-container {
+  position: relative;
   width: max-content;
   padding: 2rem 4rem;
   background-color: var(--giants-orange);
   color: var(--cosmic-latte);
+}
+
+.extend-background {
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  background-color: #FF5A13;
 }
 
 /*
@@ -187,6 +196,12 @@ nav {
   border-bottom-right-radius: 4rem;
 }
 
+#projects-page > .title-container > .extend-background {
+  top: 0;
+  left: 0;
+  transform: translate(-100%, 0%);
+}
+
 .projects-container {
   padding: 1rem 4rem;
   display: grid;
@@ -269,6 +284,12 @@ nav {
   border-top-left-radius: 4rem;
   border-bottom-left-radius: 4rem;
   text-align: right;
+}
+
+#contact-page > .title-container > .extend-background {
+  z-index: -1;
+  top: 0;
+  left: 0;
 }
 
 #contact-page .hero {
