@@ -41,15 +41,23 @@
   color: inherit;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--cosmic-latte);
+}
+
 #about-page, #projects-page, #contact-page {
   min-height: 100vh;
-  padding: 2rem;
+  max-width: 1450px;
+  background-color: var(--cosmic-latte);
   scroll-snap-align: start;
 }
 
 .header {
-  font-size: 10rem;
-  letter-spacing: -0.5rem;
+  font-size: 6rem;
+  letter-spacing: -0.125rem;
   font-weight: bold;
   line-height: 1;
   user-select: none;
@@ -140,46 +148,23 @@ nav {
 /*
  * About Page Styles
  */
-#about-page {
-  position: relative;
+ #about-page {
+  padding: 2rem 4rem;
+  padding-top: calc(56px + 2rem);
   display: flex;
   flex-direction: column;
-  color: white;
+  gap: 1rem;
+  color: var(--giants-orange);
 }
 
-.background-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  display: flex;
+#about-page > .header {
+  text-align: center;
 }
 
-.background-panel {
-  width: 400px;
-  min-height: 100vh;
-  background-color: var(--ecru);
-}
-
-.background-image {
-  flex: 1;
-  background-image: url('./assets/images/graduation.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-.about-container {
-  margin-top: 10rem;
-  max-width: 650px;
-}
-
-.greeting-container {
-  margin-top: auto;
-}
-
-.greeting-container > .subheader {
-  transform: translate(6px, 0);
+.header-image {
+  height: 560px;
+  object-fit: cover;
+  border-radius: 4rem;
 }
 
 /*
