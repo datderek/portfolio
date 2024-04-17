@@ -86,7 +86,7 @@ export default class Display {
     const observerOptions = {
       root: null,
       threshold: 0,
-      rootMargin: '0px 0px -33% 0px'
+      rootMargin: '0px 25% -33% 25%'
     };
 
     const observer = new IntersectionObserver(entries => {
