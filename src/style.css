@@ -49,6 +49,7 @@ body {
   min-height: 100vh;
   max-width: 1600px;
   background-color: var(--cosmic-latte);
+  color: var(--giants-orange);
   scroll-snap-align: start;
 }
 
@@ -67,6 +68,13 @@ body {
 
 .hero {
   font-size: 2rem;
+}
+
+.title-container {
+  width: max-content;
+  padding: 2rem 4rem;
+  background-color: var(--giants-orange);
+  color: var(--cosmic-latte);
 }
 
 /*
@@ -175,12 +183,8 @@ nav {
 }
 
 #projects-page > .title-container {
-  width: max-content;
-  padding: 2rem 4rem;
   border-top-right-radius: 4rem;
   border-bottom-right-radius: 4rem;
-  background-color: var(--giants-orange);
-  color: var(--cosmic-latte);
 }
 
 .projects-container {
@@ -254,26 +258,26 @@ nav {
  * Contact Page Styles
  */
 #contact-page {
-  position: relative;
   padding: 2rem 0rem;
   display: flex;
   flex-direction: column;
-  background-color: var(--cosmic-latte);
-  color: var(--giants-orange);
+  gap: 1rem;
 }
 
-#contact-page > .header {
-  align-self: center;
-  text-align: center;
+#contact-page > .title-container {
+  align-self: flex-end;
+  border-top-left-radius: 4rem;
+  border-bottom-left-radius: 4rem;
+  text-align: right;
 }
 
-.contact-description {
-  padding: 0rem 2rem;
+#contact-page .hero {
+  padding: 0.5rem 4rem;
 }
 
 .contact {
   position: relative;
-  padding: 0.5rem 2rem;
+  padding: 1rem 4rem;
   border-top: 3px solid var(--giants-orange);
   transition: 100ms color, 100ms background-color;
 }
@@ -288,7 +292,7 @@ nav {
   top: 0;
   height: 100%;
   width: 100%;
-  padding: 0.5rem 2rem;
+  padding: 1rem 4rem;
   color: #FFFBEB;
   background-color: var(--giants-orange);
   transform: scale(100%, 0);
