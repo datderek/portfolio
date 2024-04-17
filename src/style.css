@@ -41,6 +41,7 @@
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: var(--cosmic-latte);
@@ -202,6 +203,7 @@ nav {
 }
 
 #about-page > .hero {
+  text-align: center;
   animation: 1000ms fade ease-out 2500ms both;
 }
 
@@ -355,7 +357,7 @@ nav {
   height: 100%;
   width: 100%;
   padding: 1rem 4rem;
-  color: #FFFBEB;
+  color: var(--cosmic-latte);
   background-color: var(--giants-orange);
   transform: scale(100%, 0);
   will-change: transform;
@@ -364,6 +366,28 @@ nav {
 
 .contact:hover .contact-hovered {
   transform: scale(100%, 100%);
+}
+
+/*
+ * Footer page styling
+ */
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  background-color: var(--giants-orange);
+  color: var(--cosmic-latte);
+  padding: 4rem;
+}
+
+.footer-list-title {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+
+.footer-list a {
+  text-decoration: underline;
 }
 
 @keyframes expand {
