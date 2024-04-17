@@ -44,9 +44,9 @@ const projects = [
 ]
 
 export default class Display {
-  
   static start() {
     this.#loadProjects();
+    this.#initializeObserver();
   }
 
   static #loadProjects() {
@@ -79,6 +79,29 @@ export default class Display {
       projectContainer.appendChild(projectLinkWrapper);
       projectContainer.appendChild(projectDetails);
       projectList.appendChild(projectContainer);
+    })
+  }
+
+  static #initializeObserver() {
+    const observerOptions = {
+      root: null,
+      threshold: 0,
+      rootMargin: '0px 0px -33% 0px'
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+          }
+      });
+    }, observerOptions);
+
+    const titleContainers = document.querySelectorAll('.title-container');
+
+    titleContainers.forEach((titleContainer) => {
+      observer.observe(titleContainer);
     })
   }
 }

@@ -48,7 +48,6 @@ body {
 }
 
 #about-page, #projects-page, #contact-page {
-  min-height: 100vh;
   max-width: 1600px;
   background-color: var(--cosmic-latte);
   color: var(--giants-orange);
@@ -99,14 +98,18 @@ nav {
   top: 0;
   z-index: 1;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
 }
 
 .nav-container {
   height: 100%;
+  width: 100%;
   display: flex;
   color: var(--cosmic-latte);
+}
+
+.icon {
+  margin-right: auto;
 }
 
 .menu-links {
@@ -166,22 +169,40 @@ nav {
  * About Page Styles
  */
  #about-page {
+  height: 100vh;
   padding: 2rem 4rem;
-  padding-top: calc(56px + 2rem);
+  padding-top: 2.25rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
   color: var(--giants-orange);
 }
 
 #about-page > .header {
   text-align: center;
+  animation: 1000ms fade ease-out both;
+}
+
+.header-image-container {
+  flex: 1;
+  max-height: 750px;
+  width: 100%;
+  border-radius: 4rem;
+  overflow: hidden;
+  animation: 1000ms fade ease-out both 1250ms;
 }
 
 .header-image {
-  height: 560px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 4rem;
+  object-position: center;
+}
+
+#about-page > .hero {
+  animation: 1000ms fade ease-out 2500ms both;
 }
 
 /*
@@ -197,6 +218,12 @@ nav {
 #projects-page > .title-container {
   border-top-right-radius: 4rem;
   border-bottom-right-radius: 4rem;
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+#projects-page > .title-container.in-view {
+  animation: expand 750ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
 #projects-page > .title-container > .extend-background {
@@ -230,6 +257,9 @@ nav {
   overflow: hidden;
   will-change: transform;
   transition: 500ms transform;
+  animation: fade linear both;
+  animation-timeline: view();
+  animation-range: 0vh 50vh;
 }
 
 .project:hover {
@@ -287,12 +317,20 @@ nav {
   border-top-left-radius: 4rem;
   border-bottom-left-radius: 4rem;
   text-align: right;
+  transform-origin: right;
+  transform: scaleX(0);
+}
+
+#contact-page  > .title-container.in-view {
+  animation: expand 750ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
 #contact-page > .title-container > .extend-background {
   z-index: -1;
   top: 0;
   left: 0;
+  border-top-left-radius: 4rem;
+  border-bottom-left-radius: 4rem;
 }
 
 #contact-page .hero {
@@ -345,6 +383,16 @@ nav {
 
   to {
     transform: scaleX(0)
+  }
+}
+
+@keyframes fade {
+  from { 
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
