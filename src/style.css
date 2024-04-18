@@ -22,11 +22,9 @@
 :root {
   scroll-behavior: smooth;
   scroll-snap-type: y;
-  --ecru: #AA9B5C;
-  --columbia-blue: #B7CCDE;
-  --payne-gray: #455E75;
   --cosmic-latte: #FFFBEB;
   --giants-orange: #FF5A13;
+  --sky-blue: #13B8FF;
 }
 
 * {
@@ -41,22 +39,32 @@
   color: inherit;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--cosmic-latte);
+  overflow-x: hidden;
+}
+
 #about-page, #projects-page, #contact-page {
-  min-height: 100vh;
-  padding: 2rem;
+  max-width: 1600px;
+  background-color: var(--cosmic-latte);
+  color: var(--giants-orange);
   scroll-snap-align: start;
 }
 
 .header {
-  font-size: 10rem;
-  letter-spacing: -0.5rem;
+  font-size: 6rem;
+  letter-spacing: -0.125rem;
   font-weight: bold;
   line-height: 1;
   user-select: none;
 }
 
 .subheader {
-  font-size: 3rem;
+  font-size: 2.5rem;
   user-select: none;
 }
 
@@ -64,24 +72,45 @@
   font-size: 2rem;
 }
 
+.title-container {
+  position: relative;
+  max-width: max-content;
+  padding: 2rem 4rem;
+  background-color: var(--giants-orange);
+  color: var(--cosmic-latte);
+}
+
+.extend-background {
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  background-color: #FF5A13;
+}
+
 /*
  * Navbar Style
  */
 nav {
-  z-index: 1;
   width: 100%;
   height: 56px;
   padding: 0.5rem 1rem;
   position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0));
 }
 
 .nav-container {
   height: 100%;
+  width: 100%;
   display: flex;
+  color: var(--cosmic-latte);
+}
+
+.icon {
+  margin-right: auto;
 }
 
 .menu-links {
@@ -108,7 +137,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: var(--sky-blue);
 }
 
 .menu-links > a:first-child {
@@ -124,7 +153,7 @@ nav {
   margin-left: 1rem;
   border-radius: 1000px;
   border: none;
-  background-color: white;
+  background-color: var(--sky-blue);
   background-image: url('assets/images/cross.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -140,73 +169,74 @@ nav {
 /*
  * About Page Styles
  */
-#about-page {
-  position: relative;
+ #about-page {
+  height: 100vh;
+  padding: 2rem 4rem;
+  padding-top: calc(56px + 0.25rem);
   display: flex;
   flex-direction: column;
-  color: white;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: var(--giants-orange);
 }
 
-.background-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  display: flex;
+#about-page > .header {
+  text-align: center;
+  animation: 1000ms fade ease-out both;
 }
 
-.background-panel {
-  width: 400px;
-  min-height: 100vh;
-  background-color: var(--ecru);
-}
-
-.background-image {
+.header-image-container {
   flex: 1;
-  background-image: url('./assets/images/graduation.jpg');
-  background-size: cover;
-  background-position: center;
+  max-height: 750px;
+  width: 100%;
+  border-radius: 4rem;
+  overflow: hidden;
+  animation: 1000ms fade ease-out both 1250ms;
+  background-color: blue;
 }
 
-.about-container {
-  margin-top: 10rem;
-  max-width: 650px;
+.header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-.greeting-container {
-  margin-top: auto;
-}
-
-.greeting-container > .subheader {
-  transform: translate(6px, 0);
+#about-page > .hero {
+  text-align: center;
+  animation: 1000ms fade ease-out 2500ms both;
 }
 
 /*
  * Projects Page Styles
  */
 #projects-page {
-  padding-top: 1rem;
+  padding: 2rem 0rem;
   display: flex;
   flex-direction: column;
-  background-color: var(--columbia-blue);
-  color: var(--payne-gray);
-  gap: 7rem;
+  gap: 1rem;
 }
 
-.title-container {
-  transform: rotate(-5deg);
+#projects-page > .title-container {
+  border-top-right-radius: 4rem;
+  border-bottom-right-radius: 4rem;
+  transform-origin: left;
+  transform: scaleX(0);
 }
 
-.title-container > p {
-  transform: translate(6px, 0);
+#projects-page > .title-container.in-view {
+  animation: expand 750ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
-.title-container > .header {
-  line-height: 0.8;
+#projects-page > .title-container > .extend-background {
+  top: 0;
+  left: 0;
+  transform: translate(-100%, 0%);
 }
 
 .projects-container {
+  padding: 1rem 4rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
   grid-auto-rows: 300px;
@@ -214,7 +244,7 @@ nav {
   row-gap: 2.5rem;
   /* Shadows provided by Josh Comeau at: 
   https://www.joshwcomeau.com/shadow-palette/ */
-  --shadow-color: 92, 102, 111, 0.25;
+  --shadow-color: 153, 151, 141, 0.25;
   --shadow:
     0.3px 0.5px 0.7px rgba(var(--shadow-color)),
     1.1px 1.6px 2.2px -0.8px rgba(var(--shadow-color)),
@@ -230,6 +260,9 @@ nav {
   overflow: hidden;
   will-change: transform;
   transition: 500ms transform;
+  animation: fade linear both;
+  animation-timeline: view();
+  animation-range: 0vh 50vh;
 }
 
 .project:hover {
@@ -276,26 +309,40 @@ nav {
  * Contact Page Styles
  */
 #contact-page {
-  position: relative;
   padding: 2rem 0rem;
   display: flex;
   flex-direction: column;
-  background-color: var(--cosmic-latte);
-  color: var(--giants-orange);
+  gap: 1rem;
 }
 
-#contact-page > .header {
-  align-self: center;
-  text-align: center;
+#contact-page > .title-container {
+  align-self: flex-end;
+  border-top-left-radius: 4rem;
+  border-bottom-left-radius: 4rem;
+  text-align: right;
+  transform-origin: right;
+  transform: scaleX(0);
 }
 
-.contact-description {
-  padding: 0rem 2rem;
+#contact-page  > .title-container.in-view {
+  animation: expand 750ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+#contact-page > .title-container > .extend-background {
+  z-index: -1;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 4rem;
+  border-bottom-left-radius: 4rem;
+}
+
+#contact-page .hero {
+  padding: 0.5rem 4rem;
 }
 
 .contact {
   position: relative;
-  padding: 0.5rem 2rem;
+  padding: 1rem 4rem;
   border-top: 3px solid var(--giants-orange);
   transition: 100ms color, 100ms background-color;
 }
@@ -310,8 +357,8 @@ nav {
   top: 0;
   height: 100%;
   width: 100%;
-  padding: 0.5rem 2rem;
-  color: #FFFBEB;
+  padding: 1rem 4rem;
+  color: var(--cosmic-latte);
   background-color: var(--giants-orange);
   transform: scale(100%, 0);
   will-change: transform;
@@ -320,6 +367,28 @@ nav {
 
 .contact:hover .contact-hovered {
   transform: scale(100%, 100%);
+}
+
+/*
+ * Footer page styling
+ */
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  background-color: var(--giants-orange);
+  color: var(--cosmic-latte);
+  padding: 4rem;
+}
+
+.footer-list-title {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+
+.footer-list a {
+  text-decoration: underline;
 }
 
 @keyframes expand {
@@ -342,49 +411,58 @@ nav {
   }
 }
 
-@media (max-width: 1000px) {
-  .header {
-    font-size: 8rem;
-    letter-spacing: -0.25rem;
+@keyframes fade {
+  from { 
+    opacity: 0;
   }
 
-  .subheader{
-    font-size: 2.4rem;
-  }
-
-  .hero {
-    font-size: 1.6rem;
-  }
-
-  .background-panel {
-    width: 200px;
-  }
-
-  #projects-page {
-    gap: 3rem;
+  to {
+    opacity: 1;
   }
 }
 
-@media (max-width: 500px) {
-  #about-page, #projects-page, #contact-page {
-    padding: 1rem;
-  }
- 
-  #contact-page {
-    padding: 1rem 0rem;
-  }
-  
+@media (max-width: 1000px) {
   .header {
-    font-size: 5rem;
-    letter-spacing: -0.125rem;
+    font-size: 3rem;
   }
 
   .subheader{
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   .hero {
     font-size: 1.125rem;
+  }
+
+  .title-container {
+    padding: 1.5rem 3rem;
+  }
+
+  #about-page {
+    padding: 2rem 2rem;
+  }
+
+  .projects-container {
+    padding: rem 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    font-size: 2rem;
+    letter-spacing: -0.05rem;
+  }
+
+  .subheader {
+    font-size: 1.125rem;
+  }
+
+  .hero {
+    font-size: 1rem;
+  }
+
+  .title-container {
+    padding: 0.5rem 1rem;
   }
 
   nav {
@@ -393,39 +471,25 @@ nav {
 
   .menu-toggle-button {
     width: 34px;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
   }
 
   .menu-links > a {
-    width: 80px;
+    width: 70px;
   }
 
-  .background-panel {
-    width: 0px;
-  }
-
-  #projects-page {
-    gap: 2rem;
-  }
-
-  .title-container {
-    align-self: center;
+  #about-page {
+    padding-top: calc(50px + 0.125rem);
   }
 
   .projects-container {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-auto-rows: 225px;
+    padding: 0.5rem 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 200px;
+    gap: 1rem;
   }
 
-  .contact-description {
-    padding: 0rem 1rem;
-  }
-
-  .contact {
-    padding: 0.25rem 1rem;
-  }
-
-  .contact-hovered {
-    padding: 0.25rem 1rem;
+  .contact, #contact-page .hero, .contact-hovered {
+    padding: 0.5rem 2rem;
   }
 }
