@@ -21,7 +21,6 @@
 
 :root {
   scroll-behavior: smooth;
-  scroll-snap-type: y;
   --cosmic-latte: #FFFBEB;
   --giants-orange: #FF5A13;
   --sky-blue: #13B8FF;
@@ -52,7 +51,6 @@ body {
   max-width: 1600px;
   background-color: var(--cosmic-latte);
   color: var(--giants-orange);
-  scroll-snap-align: start;
 }
 
 .header {
