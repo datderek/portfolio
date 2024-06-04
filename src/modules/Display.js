@@ -3,6 +3,7 @@ import SoundScribe from '../assets/images/soundscribe.png';
 import TicTacToe from '../assets/images/tictactoe.png';
 import WeatherMan from '../assets/images/weatherman.png';
 import Yum from '../assets/images/yum.png';
+import CuppaJoe from '../assets/images/cuppajoe.png';
 
 const createImageElement = (src) => {
   const imageElement = new Image();
@@ -16,6 +17,12 @@ const projects = [
     'description': 'A social culinary platform for home cooks and professional chefs',
     'link': 'https://github.com/jackfales/yum',
     'img': createImageElement(Yum)
+  },
+  {
+    'name': 'Faux E-commerce App',
+    'description': 'An e-commerce app to familiarize myself with the React framework',
+    'link': 'https://github.com/datderek/ecommerce-app',
+    'img': createImageElement(CuppaJoe)
   },
   {
     'name': 'Battleships',
@@ -38,7 +45,7 @@ const projects = [
   {
     'name': 'Tic Tac Toe',
     'description': 'Get three in a row!',
-    'link': 'https://github.com/datderek/odinproject/tree/main/tictactoe',
+    'link': 'https://github.com/datderek/tictactoe',
     'img': createImageElement(TicTacToe)
   },
 ]
